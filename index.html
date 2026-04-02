@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevFolio Premium</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui;}
+
+body{
+  background:#0f172a;
+  color:white;
+  transition:0.3s;
+}
+
+.light{
+  background:#f8fafc;
+  color:#0f172a;
+}
+
+/* NAV */
+nav{
+  display:flex;
+  justify-content:space-between;
+  padding:15px 40px;
+  backdrop-filter: blur(10px);
+  position:sticky;
+  top:0;
+}
+
+nav a{
+  margin:0 10px;
+  text-decoration:none;
+  color:#38bdf8;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:120px 20px;
+  animation:fadeIn 1s ease;
+}
+
+.hero h1{
+  font-size:45px;
+}
+
+.hero span{
+  color:#38bdf8;
+}
+
+/* BUTTON */
+.btn{
+  margin-top:20px;
+  padding:10px 20px;
+  border:none;
+  background:#38bdf8;
+  cursor:pointer;
+  border-radius:6px;
+}
+
+/* SECTIONS */
+section{
+  max-width:900px;
+  margin:auto;
+  padding:60px 20px;
+}
+
+h2{
+  margin-bottom:20px;
+  color:#38bdf8;
+}
+
+/* CARD */
+.card{
+  background:#1e293b;
+  padding:20px;
+  border-radius:12px;
+  margin-bottom:15px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+/* LIGHT CARD */
+.light .card{
+  background:white;
+}
+
+/* CONTACT */
+input,textarea{
+  width:100%;
+  margin:10px 0;
+  padding:10px;
+  border-radius:6px;
+  border:none;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .hero h1{font-size:30px;}
+}
+</style>
+
+</head>
+
+<body>
+
+<nav>
+  <h3>DevFolio</h3>
+  <div>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <button onclick="toggleTheme()">🌗</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Hello, I'm <span>Your Name</span></h1>
+  <p>Frontend Developer | UI Designer</p>
+  <button class="btn">Download Resume</button>
+</div>
+
+<section id="about">
+  <h2>About Me</h2>
+  <div class="card">Write about yourself here.</div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="card">
+    <h3>Project 1</h3>
+    <p>Description of project</p>
+  </div>
+
+  <div class="card">
+    <h3>Project 2</h3>
+    <p>Description of project</p>
+  </div>
+
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+
+  <input placeholder="Name">
+  <input placeholder="Email">
+  <textarea placeholder="Message"></textarea>
+  <button class="btn" onclick="send()">Send</button>
+
+</section>
+
+<footer>
+  <p>© 2026 Your Name</p>
+</footer>
+
+<script>
+// Theme toggle
+function toggleTheme(){
+  document.body.classList.toggle("light");
+}
+
+// Smooth scroll
+document.querySelectorAll("a").forEach(link=>{
+  link.onclick=function(e){
+    e.preventDefault();
+    document.querySelector(this.getAttribute("href")).scrollIntoView({behavior:"smooth"});
+  }
+});
+
+// Fake send
+function send(){
+  alert("Message sent!");
+}
+</script>
+
+</body>
+</html>
